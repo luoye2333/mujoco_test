@@ -20,8 +20,13 @@ model.hfield_data = real_height.transpose().flatten() # penetrate
 
 viewer = mujoco.viewer.launch_passive(model, data)
 
+count = 0
 while viewer.is_running():
     mujoco.mj_step(model, data)
+    if count > 100:
+        mujoco.mj_resetData(model, data)
+        count = 0
+    count += 1
     time.sleep(1/50.)
     viewer.sync()
 
