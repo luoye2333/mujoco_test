@@ -19,6 +19,7 @@ model.hfield_data = real_height.transpose().flatten() # penetrate
 # model.hfield_data = real_height.transpose().flatten() - 2.0
 
 viewer = mujoco.viewer.launch_passive(model, data)
+viewer.cam.distance = 10.0  # 摄像机距离
 
 count = 0
 while viewer.is_running():
