@@ -14,9 +14,9 @@ vertical_scale = 0.005
 real_height = np.load(path) * vertical_scale
 
 model.hfield_data = real_height.transpose().flatten() # penetrate
-# model.hfield_data = real_height.transpose().flatten() * 10 # penetrate more
+# model.hfield_data = real_height.transpose().flatten() * 10 # penetrate more, NOTE: remember to change test.xml
 # model.hfield_data = real_height.transpose().flatten() * 0.1 # ok
-# model.hfield_data = real_height.transpose().flatten() - 2.0
+# model.hfield_data = real_height.transpose().flatten() - 2.0 # ok
 
 viewer = mujoco.viewer.launch_passive(model, data)
 viewer.cam.distance = 10.0  # 摄像机距离
